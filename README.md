@@ -73,7 +73,7 @@ Este sistema digitaliza todo o processo, trazendo organização, confiabilidade 
 ### 1. Clonar o repositório
 ```bash
 git clone https://github.com/seu-usuario/sistema-odontologico.git
-cd sistema-odontologo
+cd aplicacao-Flask
 ```
 
 ### 2. Criar ambiente virtual
