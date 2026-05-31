@@ -1,0 +1,157 @@
+/* Estilos customizados para a Clínica Odontológica */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    color: white;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-sm {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f7ff;
+}
+
+.alert {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-control, .form-select {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+footer {
+    margin-top: auto;
+    border-top: 1px solid #dee2e6;
+    background-color: white;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.status-aguardando {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.status-em_atendimento {
+    background-color: #0dcaf0;
+    color: #fff;
+}
+
+.status-concluido {
+    background-color: #198754;
+    color: #fff;
+}
+
+.status-cancelado {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.index-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.index-card .display-4 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.index-card p {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .table {
+        font-size: 0.9rem;
+    }
+
+    .btn-sm {
+        margin: 0.25rem;
+    }
+}
