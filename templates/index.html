@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block titulo %}Início - Clínica Odontológica{% endblock %}
+
+{% block conteudo %}
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="card-title">🦷 Clínica Odontológica</h1>
+                <p class="card-text">Sistema de Agendamento e Controle de Consultas</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body text-center">
+                <h5 class="card-title">Pacientes</h5>
+                <p class="card-text display-6">{{ total_pacientes }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-white bg-success">
+            <div class="card-body text-center">
+                <h5 class="card-title">Consultas Hoje</h5>
+                <p class="card-text display-6">{{ consultas_hoje }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-white bg-info">
+            <div class="card-body text-center">
+                <h5 class="card-title">Atendimentos Ativos</h5>
+                <p class="card-text display-6">{{ consultas_ativas }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Atalhos Rápidos</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="{{ url_for('routes.criar_paciente') }}" class="btn btn-outline-primary btn-lg w-100 mb-2">
+                            ✍️ Novo Paciente
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ url_for('routes.criar_consulta') }}" class="btn btn-outline-success btn-lg w-100 mb-2">
+                            📅 Nova Consulta
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ url_for('routes.listar_consultas_hoje') }}" class="btn btn-outline-info btn-lg w-100 mb-2">
+                            🕒 Consultas de Hoje
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ url_for('routes.listar_consultas') }}" class="btn btn-outline-secondary btn-lg w-100 mb-2">
+                            📋 Todas Consultas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

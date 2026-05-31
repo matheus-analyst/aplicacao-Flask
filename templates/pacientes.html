@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block titulo %}Pacientes - Clínica Odontológica{% endblock %}
+
+{% block conteudo %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>📋 Lista de Pacientes</h2>
+    <a href="{{ url_for('routes.criar_paciente') }}" class="btn btn-success">
+        ✍️ Novo Paciente
+    </a>
+</div>
+
+{% if pacientes %}
+<table class="table table-striped table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Consultas</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for paciente in pacientes %}
+        <tr>
+            <td>{{ paciente.id }}</td>
+            <td>{{ paciente.nome }}</td>
+            <td>{{ paciente.telefone }}</td>
+            <td>{{ paciente.consultas|length }}</td>
+            <td>
+                <a href="{{ url_for('routes.criar_consulta') }}?paciente_id={{ paciente.id }}" 
+                   class="btn btn-sm btn-outline-primary" title="Agendar consulta">
+                    📅
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">Nenhum paciente cadastrado ainda.</div>
+{% endif %}
+{% endblock %}
