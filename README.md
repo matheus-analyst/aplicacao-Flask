@@ -1,147 +1,113 @@
-# Sistema de Agendamento Odontológico
+# OdontoFácil
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![Flask](https://img.shields.io/badge/Flask-2.0%2B-green)
-![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
+Sistema simples de gestão para clínicas odontológicas, desenvolvido com Flask e SQLite.
 
-Um sistema simples e profissional para agendamento e controle de consultas em clínicas odontológicas. Desenvolvido com Flask, este projeto resolve o problema comum de clínicas que ainda usam papel ou planilhas para gerenciar seus pacientes e horários.
+## 🌟 Funcionalidades
 
-## 🎯 Problema Resolvido
+- Cadastro, edição e exclusão de pacientes
+- Agenda de consultas com filtros
+- Dashboard com estatísticas
+- Busca e filtragem inteligente
+- Interface responsiva com Bootstrap
 
-Muitas clínicas odontológicas pequenas ainda organizam seus agendamentos com cadernos ou planilhas, o que gera:
-- Erros de digitação
-- Duplicação de horários
-- Dificuldade em visualizar consultas do dia
-- Falta de controle sobre o status das consultas
-- Baixa profissionalização do atendimento
+## 📦 Tecnologias
 
-Este sistema digitaliza todo o processo, trazendo organização, confiabilidade e uma interface limpa para a recepção da clínica.
+- Python 3.8+
+- Flask (Framework web)
+- SQLAlchemy (ORM)
+- SQLite (Banco de dados)
+- Bootstrap 5 (Interface)
 
-## ✅ Funcionalidades
+## 🚀 Como instalar
 
-| Funcionalidade | Descrição |
-|----------------|---------|
-| 📝 Cadastrar Pacientes | Registra nome e telefone do paciente |
-| 🗓️ Agendar Consultas | Define data, hora, dentista e observações |
-| ⏳ Status de Consulta | Controla: aguardando, em atendimento, finalizado, cancelado |
-| 📅 Listar Consultas do Dia | Visualiza todas as consultas do dia atual |
-| 🔍 Ver Detalhes | Mostra informações completas de cada consulta |
-| ✏️ Editar Consultas | Permite ajustar dados após o agendamento |
-| ❌ Cancelar Consultas | Marca consulta como cancelada |
-| ⚠️ Validações | Não permite horários duplicados ou datas passadas |
+### No SPCK (Android)
 
-## 🖼️ Exemplos de Uso
+1. Abra o SPCK
+2. Instale o Python
+3. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/odonto-facil.git
+   cd odonto-facil
+   ```
+4. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Execute a aplicação:
+   ```bash
+   python app.py
+   ```
+6. Abra no navegador: `http://localhost:5000`
 
-### Página Inicial
-![Página Inicial](assets/screenshots/home.png)
+### No Termux (Android)
 
-### Agendamento de Consulta
-![Agendamento](assets/screenshots/agendar.png)
+1. Instale o Termux
+2. Atualize os pacotes:
+   ```bash
+   pkg update && pkg upgrade
+   pkg install git python
+   ```
+3. Clone e execute igual ao SPCK:
+   ```bash
+   git clone https://github.com/seu-usuario/odonto-facil.git
+   cd odonto-facil
+   pip install -r requirements.txt
+   python app.py
+   ```
 
-### Lista de Consultas do Dia
-![Lista de Consultas](assets/screenshots/lista.png)
+### No PC (Windows, Linux, Mac)
 
-## 📁 Estrutura do Projeto
-
-```
-.
-├── app.py                 # Ponto de entrada da aplicação
-├── models.py              # Definição das entidades (Paciente, Consulta)
-├── routes.py              # Rotas da aplicação
-├── templates/             # Templates HTML com Jinja2
-│   ├── base.html          # Layout principal
-│   ├── index.html         # Página inicial
-│   ├── pacientes.html     # Lista de pacientes
-│   ├── agendar.html       # Formulário de agendamento
-│   ├── consultas.html     # Lista de consultas diárias
-│   └── detalhes.html      # Detalhes de uma consulta
-├── static/                # Arquivos estáticos
-│   ├── css/
-│   │   └── style.css      # Estilos principais
-│   └── assets/
-│       └── screenshots/   # Imagens para o README
-├── tests/                 # Testes automatizados
-│   └── test_app.py        # Testes com pytest
-├── .github/workflows/
-│   └── ci.yml             # Configuração de CI/CD com GitHub Actions
-├── requirements.txt       # Dependências do Python
-└── README.md              # Este arquivo
-```
-
-## 🚀 Como Executar o Projeto
-
-### 1. Clonar o repositório
 ```bash
-git clone https://github.com/seu-usuario/sistema-odontologico.git
-cd aplicacao-Flask
-```
-
-### 2. Criar ambiente virtual
-```bash
+git clone https://github.com/seu-usuario/odonto-facil.git
+cd odonto-facil
 python -m venv venv
-```
-
-### 3. Ativar ambiente virtual
-
-No Linux/Mac:
-```bash
-source venv/bin/activate
-```
-
-No Windows:
-```bash
-venv\\Scripts\\activate
-```
-
-### 4. Instalar dependências
-```bash
+source venv/bin/activate  # Linux/Mac
+# ou venv\\Scripts\\activate  # Windows
 pip install -r requirements.txt
-```
-
-### 5. Executar a aplicação
-```bash
 python app.py
 ```
 
-Acesse no navegador: [http://localhost:5000](http://localhost:5000)
+Acesse: [http://localhost:5000](http://localhost:5000)
 
-## 🧪 Como Executar os Testes
+## 📂 Estrutura do Projeto
 
-Com o ambiente virtual ativado:
-```bash
-pytest tests/
+```
+OdontoFácil/
+├── app.py               # Aplicação principal
+├── requirements.txt     # Dependências
+├── README.md            # Este arquivo
+├── docs/
+│   └── arquitetura.md   # Documentação técnica
+├── templates/           # Páginas HTML
+│   ├── base.html
+│   ├── index.html
+│   ├── pacientes.html
+│   ├── novo_paciente.html
+│   ├── editar_paciente.html
+│   ├── consultas.html
+│   ├── nova_consulta.html
+│   └── editar_consulta.html
+└── static/
+    └── style.css        # Estilos personalizados
 ```
 
-Ou com cobertura de código:
+## 🧪 Testes
+
+Os testes estão em desenvolvimento. Para rodar:
+
 ```bash
-pytest tests/ --cov=.
+pip install pytest
+python -m pytest testes/
 ```
 
-## 🛠️ Tecnologias Utilizadas
+## 🔄 CI/CD
 
-- **Python 3.9+**: Linguagem principal
-- **Flask**: Framework web leve
-- **SQLAlchemy**: ORM para banco de dados
-- **SQLite**: Banco de dados embutido
-- **Jinja2**: Templates HTML
-- **pytest**: Testes automatizados
-- **GitHub Actions**: Integração contínua
-- **HTML/CSS**: Interface do usuário
+GitHub Actions configurado para testar a cada push.
 
-## 📝 Observações
+## 📄 Licença
 
-- Todo o código, mensagens e comentários estão em **português**.
-- O sistema não permite agendamentos em datas passadas ou horários conflitantes.
-- O banco de dados é criado automaticamente na primeira execução.
-- Ideal para clínicas pequenas ou consultórios individuais.
+MIT License - Veja [LICENSE](LICENSE) para detalhes.
 
-## 🌟 Objetivo do Projeto
+---
 
-Este projeto foi criado como parte de um portfólio profissional, demonstrando habilidades em:
-- Desenvolvimento web com Flask
-- Modelagem de banco de dados
-- Validação de dados e regras de negócio
-- Interface simples e funcional
-- Boas práticas: testes, CI/CD, documentação
-
-> Desenvolvido por um programador júnior com foco em código limpo, funcional e útil.
+> Desenvolvido com ❤️ para estudantes de Python e clínicas pequenas.

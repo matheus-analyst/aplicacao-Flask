@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block titulo %}Novo Paciente - OdontoFácil{% endblock %}
+
+{% block conteudo %}
+<h1 class="mb-4">Cadastrar Novo Paciente</h1>
+
+<form method="post" class="needs-validation" novalidate>
+    <div class="row">
+        <div class="col-md-8 mb-3">
+            <label for="nome" class="form-label">Nome completo *</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="{{ request.form.nome or '' }}" required>
+            <div class="invalid-feedback">O nome é obrigatório.</div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" value="{{ request.form.telefone or '' }}">
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ request.form.email or '' }}">
+    </div>
+
+    <div class="mb-3 text-muted">
+        * Campos obrigatórios
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar Paciente</button>
+    <a href="{{ url_for('lista_pacientes') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+<!-- Validação de formulário -->
+<script>
+    // Ativa a validação do Bootstrap
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+{% endblock %}

@@ -1,44 +1,62 @@
 {% extends "base.html" %}
 
-{% block titulo %}Pacientes - Clínica Odontológica{% endblock %}
+{% block titulo %}Pacientes - OdontoFácil{% endblock %}
 
 {% block conteudo %}
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>📋 Lista de Pacientes</h2>
-    <a href="{{ url_for('routes.criar_paciente') }}" class="btn btn-success">
-        ✍️ Novo Paciente
-    </a>
+<h1 class="mb-4">Pacientes</h1>
+
+<!-- Barra de busca -->
+<div class="row mb-3">
+    <div class="col-md-6">
+        <form method="get" class="d-flex">
+            <input type="text" name="busca" class="form-control me-2" placeholder="Buscar por nome..." value="{{ busca }}">
+            <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+            {% if busca %}
+                <a href="{{ url_for('lista_pacientes') }}" class="btn btn-sm btn-link">Limpar</a>
+            {% endif %}
+        </form>
+    </div>
+    <div class="col-md-6 text-end">
+        <a href="{{ url_for('novo_paciente') }}" class="btn btn-success">
+            + Novo Paciente
+        </a>
+    </div>
 </div>
 
+<!-- Lista de pacientes -->
 {% if pacientes %}
-<table class="table table-striped table-hover">
-    <thead class="table-primary">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Consultas</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for paciente in pacientes %}
-        <tr>
-            <td>{{ paciente.id }}</td>
-            <td>{{ paciente.nome }}</td>
-            <td>{{ paciente.telefone }}</td>
-            <td>{{ paciente.consultas|length }}</td>
-            <td>
-                <a href="{{ url_for('routes.criar_consulta') }}?paciente_id={{ paciente.id }}" 
-                   class="btn btn-sm btn-outline-primary" title="Agendar consulta">
-                    📅
-                </a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Cadastro</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                <tr>
+                    <td>{{ paciente.nome }}</td>
+                    <td>{{ paciente.telefone or '---' }}</td>
+                    <td>{{ paciente.email or '---' }}</td>
+                    <td>{{ paciente.data_cadastro.strftime('%d/%m/%Y') }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_paciente', id=paciente.id) }}" class="btn btn-sm btn-outline-primary me-1">Editar</a>
+                        <form method="post" action="{{ url_for('excluir_paciente', id=paciente.id) }}" class="d-inline" onsubmit="return confirmarExclusao();">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <p><strong>Total:</strong> {{ pacientes|length }} paciente(s)</p>
 {% else %}
-<div class="alert alert-info">Nenhum paciente cadastrado ainda.</div>
+    <div class="alert alert-info">Nenhum paciente encontrado.</div>
 {% endif %}
+
 {% endblock %}
