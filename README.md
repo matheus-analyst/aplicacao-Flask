@@ -110,4 +110,4 @@ MIT License - Veja [LICENSE](LICENSE) para detalhes.
 
 ---
 
-> Desenvolvido com ❤️ para estudantes de Python e clínicas pequenas.
+> Desenvolvido com ❤️ para estudantes de Python.

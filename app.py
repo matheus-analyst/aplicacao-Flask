@@ -1,9 +1,3 @@
-# app.py
-# Sistema de gestão para clínicas odontológicas - OdontoFácil
-# Desenvolvido para facilitar o dia a dia de pequenas clínicas
-# Ideal para estudantes de Python com cerca de 1 ano de experiência
-# Sistema de gestão para clínicas odontológicas
-
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
